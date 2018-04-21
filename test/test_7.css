@@ -1,0 +1,57 @@
+.slot_progress_panel{
+	position:absolute;
+	z-index: 9999;
+	top:0;
+	left:0;
+	width:960px;
+	height:640px;
+}
+.slot_progress_carver{
+	position:absolute;	
+	top:0;
+	left:0;
+	width:960px;
+	height:640px;
+	opacity:0.2;
+	background-color:black;
+}
+.slot_progress_panel .slot_progress_bar{	
+	width:465px;
+	height:67px;
+	position:relative;
+	top:570px;
+	left:50%;
+	margin-left:-232px;
+	overflow: hidden;
+	background:url(loading_bg.png)no-repeat;
+	/*
+	width: 400px;
+	border: 2px #669CB8 solid;	
+	height: 20px;
+	-webkit-border-radius: 15px;	
+	padding: 1px;
+	position:relative;
+	top:570px;
+	left:50%;
+	margin-left:-200px;
+	overflow: hidden;
+	*/	
+}
+.slot_progress_panel .slot_progress_bar .slot_progress{		
+	/*
+	background-color: #7BC3FF;
+	width: 0%;
+	height: 100%;
+	-webkit-border-radius: 15px;
+	*/
+	background:url(loading_banner.png)no-repeat;
+	width: 0%;
+	height: 100%;
+}
+.slot_progress_panel .slot_progress_bar .slot_progress .slot_progress_label{	  
+	display:block;  
+	background:green;   
+	width:200px;   
+	height:25px;   
+	text-align: right;
+}

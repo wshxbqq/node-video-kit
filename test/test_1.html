@@ -1,0 +1,86 @@
+<html>
+
+<head>
+	<meta charset=UTF-8>
+    <style type=text/css>
+    #filedrag {
+        width: 300px;
+        height: 300px;
+        background: #ccc
+    }
+    </style>
+</head>
+
+<body>
+
+	<input type=checkbox id=c_jpg> <label for=c_jpg>jpg</label> 
+	<input type=checkbox id=c_png> <label for=c_png>png</label> 
+	<input type=checkbox id=c_gif> <label for=c_gif>gif</label> 
+	<input type=checkbox id=c_mp3> <label for=c_mp3>mp3</label> 
+	<input type=checkbox id=c_mp4> <label for=c_mp4>mp4</label>
+
+	<br> 
+	 <input type=checkbox id=c_reg><label for=c_reg>使用正则:</label> <input placeholder=文件全路径必须匹配 type=text id=c_reg_text>
+<br> 
+<input type=radio name=radio_output id=radio_cover checked=checked><label for=radio_cover>覆盖本地</label>
+<input type=radio name=radio_output id=radio_output_to><label for=radio_output_to>输出至</label>
+<input placeholder=路径 type=text id=output_to>
+	 <br> 
+	 <button>开始</button>
+    <div id=filedrag>
+    	拖拽 文件夹/文件  到此处 
+    </div>
+    <script type=text/javascript>
+    function FileDragHover(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.target.className = (e.type == "dragover" ? "hover" : "");
+    }
+
+    function FileSelectHandler(e) {
+
+        // cancel event and hover styling
+        FileDragHover(e);
+
+        // fetch FileList object
+        var files = e.target.files || e.dataTransfer.files;
+
+        // process all File objects
+        for (var i = 0, f; f = files[i]; i++) {
+            console.log(f);
+        }
+
+    }
+
+    filedrag.addEventListener("dragover", FileDragHover, false);
+    filedrag.addEventListener("dragleave", FileDragHover, false);
+    filedrag.addEventListener("drop", FileSelectHandler, false);
+
+
+
+
+ 	var file = require("./node/file.js");
+ 	var data = require("./node/data.js");
+
+    var handles =require("./node/handles.js");
+
+    handles.png("./1.png","./_1.png")
+
+    .then(function(info){
+        return handles.png("./2.png","./_2.png");
+    })
+    .then(function(info){
+        return handles.png("./3.png","./_3.png");
+    })
+ 	// file.splitPathTaskArray(".",function(fileItem){
+ 	// 	data.tasks.push(fileItem);
+ 	// },function(err){
+ 	// 	console.log(err);
+ 	// },function(){
+ 	// 	console.log("end");
+ 	// });
+ 	
+    </script>
+</body>
+
+</html>
