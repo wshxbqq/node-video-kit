@@ -1,0 +1,1 @@
+var ffmpeg = require('ffmpeg-static');

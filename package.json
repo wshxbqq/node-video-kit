@@ -1,0 +1,27 @@
+{
+  "name": "video-kit",
+  "version": "1.0.0",
+  "description": "video & audio processing lib for nodejs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wshxbqq/node-video-kit.git"
+  },
+  "bin": {
+    "video-kit": "cli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wshxbqq/node-video-kit/issues"
+  },
+  "homepage": "https://github.com/wshxbqq/node-video-kit#readme",
+  "dependencies": {
+    "bin-wrapper": "^3.0.2",
+    "ffmpeg-static": "^2.2.1"
+  }
+}
