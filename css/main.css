@@ -1,0 +1,82 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Microsoft YaHei" !important;
+    overflow: hidden;
+}
+
+.main-nav {
+    height: 50px;
+}
+
+.main-nav .nav h3 {
+    display: inline-block
+}
+
+.main-nav .donate {}
+
+.main-container {
+    height: calc(100% - 50px);
+}
+
+.main-container .left {
+    height: 100%;
+    float: left;
+    width: 180px;
+    position: relative;
+    user-select: none;
+}
+
+.main-container .left .left-block {}
+
+.main-container .left .left-block .left-title {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.main-container .left .left-block .left-container {}
+
+.main-container .left .left-block .left-container p {
+    margin: 5px;
+    border-bottom: 1px #ccc solid;
+    height: 25px;
+}
+
+.main-container .left .left-block .left-container p:hover {
+    padding-left: 0.5em;
+}
+
+.main-container .left .left-block .left-container p s {
+    text-decoration: none;
+}
+
+.main-container .left .left-block .left-container p a {
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.main-container .left .left-block .left-container p.cur {
+    text-indent: 1em;
+}
+
+.main-container .right {
+    height: 100%;
+    float: left;
+    width: calc(100% - 180px);
+}
+
+.mainifr {
+    width: 100%;
+    height: 100%;
+}

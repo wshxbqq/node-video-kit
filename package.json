@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/wshxbqq/node-video-kit#readme",
   "dependencies": {
+    "async": "^2.6.0",
     "bin-wrapper": "^3.0.2",
-    "ffmpeg-static": "^2.2.1"
+    "ffmpeg-static": "^2.2.1",
+    "shelljs": "^0.8.1"
   }
 }

@@ -3,27 +3,116 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>万能影音处理器</title>
+    <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font/iconfont.css">
+    <script src="lib/pagelib/jquery.3.1.0.min.js"></script>
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+
+    <script>
+        window.videokit = require('./lib/videokit.js');
+        window.fs = require('fs');
+        window.path = require('path');
+        window.os = require('os');
+        window.tmpDir = window.path.join(os.tmpdir(), "ez_media");
+        window.shelljs = require("shelljs");
+        const ipc = window.ipc = require('electron').ipcRenderer;
+    </script>
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js
-    <script>
-        document.write(process.versions.node)
-    </script>, Chromium
-    <script>
-        document.write(process.versions.chrome)
-    </script>, and Electron
-    <script>
-        document.write(process.versions.electron)
-    </script>.
+    <div class="main-nav">
+        <div class="nav">
+            <h3 class="sp-1">音频处理</h3>
+            -
+            <h3 class="sp-2">格式转换</h3>
+        </div>
+        <div class="donate">捐赠</div>
+    </div>
+    <div class="main-container">
+        <div class="left">
+            <div class="left-block">
+                <div class="left-title">音频处理</div>
+                <div class="left-container iconfont">
+                    <p>
+                        <s>&#xe64a;</s>
+                        <a href="lib/audio/pages/convert/index.html" target="mainifr">格式转换</a>
+                    </p>
+                    <p>
+                        <s>&#xe663;</s>
+                        <a>品质调整</a>
+                    </p>
+                    <p>
+                        <s>&#xe683;</s>
+                        <a>合并</a>
+                    </p>
+                    <p>
+                        <s>&#xe63c;</s>
+                        <a>截取</a>
+                    </p>
+                    <p>
+                        <s>&#xe683;</s>
+                        <a>混音</a>
+                    </p>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">视频处理</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a href="lib/video/pages/convert/index.html" target="mainifr">格式转换</a>
+                    </p>
+                    <p>
+                        <a>品质调整</a>
+                    </p>
+                    <p>
+                        <a>合并</a>
+                    </p>
+                    <p>
+                        <a>截取</a>
+                    </p>
+                    <p>
+                        <a>混音</a>
+                    </p>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">图片处理</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a>降质</a>
+                    </p>
+                    <p>
+                        <a>品质调整</a>
+                    </p>
 
-    <script>
-        // You can also require other files to run in this process
-        require('./lib/index.js')
-    </script>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">其他功能</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a>其他</a>
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <iframe class="mainifr" name="mainifr" id="mainifr" src="lib/audio/pages/convert/index.html" frameborder="no" border="0"
+                marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
+
 </body>
 
 </html>
