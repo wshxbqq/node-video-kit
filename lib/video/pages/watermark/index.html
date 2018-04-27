@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="watermark.css">
+    <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
+    <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
+    <script src="../../../pagelib/vue.min.js"></script>
+    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
+
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="control-bar">
+            截取后格式:
+            <select id="targetType">
+                <option selected>mp4</option>
+                <option>avi</option>
+                <option>flv</option>
+                <option>mkv</option>
+                <option>gif</option>
+                <option>mov</option>
+                <option>ogg</option>
+                <option>wmv</option>
+                <option>mpg</option>
+                <option>vob</option>
+            </select>
+            文件名：
+            <input id="fileName" value="concat_video" />
+        </div>
+
+        <div class="drag-zone" id="dragZoneVideo">
+            <div class="drag-info">视频文件拖拽到此处</div>
+        </div>
+
+        <div class="drag-zone" id="dragZoneImg">
+            <img id="waterimg" class="waterimg" :src="imgSrc" />
+            <div class="drag-info">图片文件拖拽到此处</div>
+        </div>
+
+
+
+
+        <hr /> 左
+        <input type="number" id="leftNum" value="0" v-model="left" />
+        <br /> 右
+        <input type="number" id="topNum" value="0" v-model="top" />
+        <br />
+        <hr />
+        <button id="play" class="btn btn-default">播放</button>
+        <button id="start" class="btn btn-success">开始</button>
+        <span class="curent-time" v-text="currentTime"></span>
+    </div>
+
+
+    <script src="watermark.js"></script>
+
+</body>
+
+</html>

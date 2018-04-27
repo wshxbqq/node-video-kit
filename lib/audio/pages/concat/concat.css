@@ -1,0 +1,47 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Microsoft YaHei" !important;
+    overflow: hidden;
+    user-select: none;
+}
+
+.control-bar {
+    height: 35px;
+}
+
+.drag-zone {
+    height: calc(100% - 35px);
+    overflow-y: scroll;
+}
+
+.drag-zone .drag-info {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    line-height: 16em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.drag-zone .file-p {
+    margin: 5px;
+    border: 1px #cacaca solid;
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+.drag-zone .file-p.success {
+    background: #93ffa6;
+}
+
+.drag-zone .file-p.failed {
+    background: #ff8787;
+}
+
+.drag-zone .file-p.processing {
+    background: #e6ff81;
+}

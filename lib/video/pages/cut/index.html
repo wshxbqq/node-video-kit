@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cut.css">
+    <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
+    <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
+    <script src="../../../pagelib/vue.min.js"></script>
+    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
+
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="control-bar">
+            截取后格式:
+            <select id="targetType">
+                <option selected>mp4</option>
+                <option>avi</option>
+                <option>flv</option>
+                <option>mkv</option>
+                <option>gif</option>
+                <option>mov</option>
+                <option>ogg</option>
+                <option>wmv</option>
+                <option>mpg</option>
+                <option>vob</option>
+            </select>
+            文件名：
+            <input id="fileName" value="concat_video" />
+
+        </div>
+
+        <div class="drag-zone" id="dragZone">
+            <div class="drag-info">截取文件拖拽到此处</div>
+        </div>
+
+        <hr style="margin-top: 175px" />
+
+        <div class="control-zone">
+
+        </div>
+        <hr />
+
+        <hr />
+        <button id="play" class="btn btn-default">播放</button>
+        <button id="cut" class="btn btn-success">截取</button>
+        <span class="curent-time" v-text="currentTime"></span>
+    </div>
+
+
+    <script src="cut.js"></script>
+
+</body>
+
+</html>

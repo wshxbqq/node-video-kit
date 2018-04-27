@@ -12,4 +12,6 @@ $(".left-block .left-container a").on("click", function (e) {
     let $this = $(this);
     $(".sp-1").html($this.parent().parent().prev().text());
     $(".sp-2").html($this.text());
+
+    $("#video").hide();
 });

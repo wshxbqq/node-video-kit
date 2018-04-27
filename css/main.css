@@ -8,6 +8,15 @@ body {
     overflow: hidden;
 }
 
+.video {
+    position: absolute;
+    z-index: 10;
+    top: 215px;
+    left: 189px;
+    width: 300px;
+    height: 150px;
+}
+
 .main-nav {
     height: 50px;
 }

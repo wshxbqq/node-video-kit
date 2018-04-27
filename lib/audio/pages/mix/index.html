@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="mix.css">
+    <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
+    <script src="../../../pagelib/vue.min.js"></script>
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+</head>
+
+<body>
+    <div class="control-bar">
+        合并后格式:
+        <select id="targetType">
+            <option selected>mp3</option>
+            <option>wav</option>
+            <option>wma</option>
+            <option>ogg</option>
+            <option>ape</option>
+            <option>flac</option>
+            <option>aac</option>
+            <option>ac3</option>
+            <option>mmf</option>
+            <option>amr</option>
+            <option>m4a</option>
+            <option>m4r</option>
+            <option>mp2</option>
+        </select>
+        文件名：
+        <input id="fileName" value="mixed_audio" />
+        <span>
+            <input type="checkbox" id="coverCkb" checked />
+            <label for="coverCkb">同目录</label>
+        </span>
+        <button class="btn btn-success" id="start">开始</button>
+        <button class="btn btn-info" id="reset">重置</button>
+    </div>
+
+    <div class="drag-zone" id="dragZone">
+        <div v-if="filesArr.length==0" class="drag-info">将待转换文件拖拽到此处</div>
+        <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
+            <span class="fPath">{{item.path}}</span>
+            <button class="del" @click="removeFile(item)">删</button>
+            <span v-if="item.stat=='processing'">处理中</span>
+        </p>
+    </div>
+    <script src="mix.js"></script>
+
+</body>
+
+</html>
