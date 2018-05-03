@@ -10,7 +10,13 @@ body {
 }
 
 .control-bar {
-    height: 35px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 2%;
+}
+
+#fileName {
+    height: 25px;
 }
 
 .drag-zone {
@@ -19,12 +25,15 @@ body {
 }
 
 .drag-zone .drag-info {
-    width: 100%;
-    height: 100%;
+    border-radius: 30px;
+    margin: 2%;
+    width: 96%;
+    height: 91%;
     background: #e0e0e0;
     line-height: 16em;
     text-align: center;
     font-size: 2em;
+    border: 6px #1b1b1b dashed;
 }
 
 .drag-zone .file-p {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="convert.css">
     <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
     <script src="../../../pagelib/vue.min.js"></script>
+    <title>视频格式转换</title>
     <script>
         if (typeof module === 'object') {
             window.jQuery = window.$ = module.exports;
@@ -17,7 +18,7 @@
 
 <body>
     <div class="control-bar">
-        目标格式:
+        转换后格式:
         <select id="targetType">
             <option selected>mp4</option>
             <option>avi</option>
@@ -41,11 +42,12 @@
     </div>
 
     <div class="drag-zone" id="dragZone">
-        <div v-if="filesArr.length==0" class="drag-info">将待转换文件拖拽到此处</div>
+        <div v-if="filesArr.length==0" class="drag-info">视频文件拖拽到此处</div>
         <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
             <span class="fPath">{{item.path}}</span>
-            <button class="del" @click="removeFile(item)">删</button>
+            <button class="btn btn-default btn-xs del" @click="removeFile(item)" title="只移除此任务，并不删除文件">删</button>
             <span v-if="item.stat=='processing'">处理中</span>
+            <span v-if="item.stat=='ok'">完成</span>
         </p>
     </div>
     <script src="convert.js"></script>

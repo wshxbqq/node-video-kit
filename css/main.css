@@ -5,87 +5,51 @@ body {
     width: 100%;
     height: 100%;
     font-family: "Microsoft YaHei" !important;
+    background-color: #efefef;
     overflow: hidden;
-}
-
-.video {
-    position: absolute;
-    z-index: 10;
-    top: 215px;
-    left: 189px;
-    width: 300px;
-    height: 150px;
-}
-
-.main-nav {
-    height: 50px;
-}
-
-.main-nav .nav h3 {
-    display: inline-block
-}
-
-.main-nav .donate {}
-
-.main-container {
-    height: calc(100% - 50px);
-}
-
-.main-container .left {
-    height: 100%;
-    float: left;
-    width: 180px;
-    position: relative;
     user-select: none;
 }
 
-.main-container .left .left-block {}
-
-.main-container .left .left-block .left-title {
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-    font-weight: bold;
-    background: #ccc;
-    cursor: pointer;
+.sub-title {
+    margin: 0;
+    padding: 7px;
+    border-bottom: 1px #000 solid;
+    font-weight: bolder;
+    clear: both;
+    margin-top: 10px;
 }
 
-.main-container .left .left-block .left-container {}
-
-.main-container .left .left-block .left-container p {
-    margin: 5px;
-    border-bottom: 1px #ccc solid;
-    height: 25px;
+.f-audio-bg {
+    background: #f8ff93;
 }
 
-.main-container .left .left-block .left-container p:hover {
-    padding-left: 0.5em;
+.f-video-bg {
+    background: #64f3aa;
 }
 
-.main-container .left .left-block .left-container p s {
-    text-decoration: none;
+.f-screen-bg {
+    background: #c9d0ff;
 }
 
-.main-container .left .left-block .left-container p a {
-    cursor: pointer;
-    color: #000;
-    text-decoration: none;
-    font-family: "Microsoft YaHei";
-    font-size: 16px;
-    font-weight: 100;
-}
-
-.main-container .left .left-block .left-container p.cur {
-    text-indent: 1em;
-}
-
-.main-container .right {
-    height: 100%;
+.func {
+    transition: all 0.5s;
+    width: 130px;
+    height: 50px;
     float: left;
-    width: calc(100% - 180px);
+    margin: 15px;
+    border-radius: 5px;
+    border: 1px #000000 solid;
+    line-height: 45px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #afafaf;
+    cursor: pointer;
 }
 
-.mainifr {
-    width: 100%;
-    height: 100%;
+.func:hover {
+    box-shadow: 2px 2px 3px #040404;
+    background: #fff;
+}
+
+.func s {
+    text-decoration: none;
 }

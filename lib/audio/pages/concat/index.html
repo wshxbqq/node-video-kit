@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="concat.css">
     <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
     <script src="../../../pagelib/vue.min.js"></script>
+    <title>音频拼接</title>
     <script>
         if (typeof module === 'object') {
             window.jQuery = window.$ = module.exports;
@@ -16,8 +17,9 @@
 </head>
 
 <body>
+    <h5 class="tip-top">音频拼接会按照下方拖拽文件的顺序，从上向下进行拼接。</h5>
     <div class="control-bar">
-        合并后格式:
+        目标格式:
         <select id="targetType">
             <option selected>mp3</option>
             <option>wav</option>
@@ -33,22 +35,20 @@
             <option>m4r</option>
             <option>mp2</option>
         </select>
-        文件名：
+        输出文件名：
         <input id="fileName" value="concat_audio" />
-        <span>
-            <input type="checkbox" id="coverCkb" checked />
-            <label for="coverCkb">同目录</label>
-        </span>
+ 
         <button class="btn btn-success" id="start">开始</button>
         <button class="btn btn-info" id="reset">重置</button>
     </div>
 
     <div class="drag-zone" id="dragZone">
-        <div v-if="filesArr.length==0" class="drag-info">将待转换文件拖拽到此处</div>
+        <div v-if="filesArr.length==0" class="drag-info">音频拼接 文件拖拽到此处</div>
         <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
             <span class="fPath">{{item.path}}</span>
-            <button class="del" @click="removeFile(item)">删</button>
+            <button class="btn btn-default btn-xs del" @click="removeFile(item)" title="只移除此任务，并不删除文件">删</button>
             <span v-if="item.stat=='processing'">处理中</span>
+            <span v-if="item.stat=='ok'">完成</span>
         </p>
     </div>
     <script src="concat.js"></script>

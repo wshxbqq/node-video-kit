@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>万能影音处理器</title>
+    <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font/iconfont.css">
+    <script src="lib/pagelib/jquery.3.1.0.min.js"></script>
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+
+    <script>
+        window.videokit = require('./lib/videokit.js');
+        window.fs = require('fs');
+        window.path = require('path');
+        window.os = require('os');
+        window.tmpDir = window.path.join(os.tmpdir(), "ez_media");
+        window.shelljs = require("shelljs");
+        const ipc = window.ipc = require('electron').ipcRenderer;
+    </script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class=""></div>
+        <div class="left">
+            <div class="left-block">
+                <div class="left-title">音频处理</div>
+                <div class="left-container iconfont">
+                    <p>
+                        <s>&#xe64a;</s>
+                        <a href="lib/audio/pages/convert/index.html" target="mainifr">格式转换</a>
+                    </p>
+                    <p>
+                        <s>&#xe663;</s>
+                        <a>品质调整</a>
+                    </p>
+                    <p>
+                        <s>&#xe683;</s>
+                        <a href="lib/audio/pages/concat/index.html" target="mainifr">合并</a>
+                    </p>
+                    <p>
+                        <s>&#xe63c;</s>
+                        <a href="lib/audio/pages/cut/index.html" target="mainifr">截取</a>
+                    </p>
+                    <p>
+                        <s>&#xe683;</s>
+                        <a href="lib/audio/pages/mix/index.html" target="mainifr">混音</a>
+                    </p>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">视频处理</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a href="lib/video/pages/convert/index.html" target="mainifr">格式转换</a>
+                    </p>
+                    <p>
+                        <a>品质调整</a>
+                    </p>
+                    <p>
+                        <a href="lib/video/pages/watermark/index.html" target="mainifr">打水印</a>
+                    </p>
+                    <p>
+                        <a href="lib/video/pages/watermark_video/index.html" target="mainifr">画中画</a>
+                    </p>
+                    <p>
+                        <a href="lib/video/pages/concat/index.html" target="mainifr">合并</a>
+                    </p>
+                    <p>
+                        <a href="lib/video/pages/cut/index.html" target="mainifr">截取</a>
+                    </p>
+                    <p>
+                        <a href="lib/video/pages/videoshot/index.html" target="mainifr">自动截图</a>
+                    </p>
+                    <p>
+                        <a href="lib/video/pages/extract/index.html" target="mainifr">提取音轨</a>
+                    </p>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">图片处理</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a>降质</a>
+                    </p>
+                    <p>
+                        <a>品质调整</a>
+                    </p>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">屏幕录制</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a>屏幕录制</a>
+                    </p>
+                </div>
+            </div>
+            <div class="left-block">
+                <div class="left-title">其他功能</div>
+                <div class="left-container" style="display:none">
+                    <p>
+                        <a>其他</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

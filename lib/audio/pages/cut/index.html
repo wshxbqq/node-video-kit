@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
     <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
     <script src="../../../pagelib/vue.min.js"></script>
-    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
-
+    <title>音频截取</title>
     <script>
         if (typeof module === 'object') {
             window.jQuery = window.$ = module.exports;
         };
     </script>
+    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
 </head>
 
 <body>
@@ -38,25 +38,33 @@
                 <option>mp2</option>
             </select>
             文件名：
-            <input id="fileName" value="concat_audio" />
+            <input id="fileName" value="cut_audio" />
 
         </div>
 
         <div class="drag-zone" id="dragZone">
             <div class="drag-info">截取文件拖拽到此处</div>
         </div>
-
-        <div class="control-zone">
-
+        <div v-if="audioSrc!==''" class="current-file">当前文件：
+            <span v-text="audioSrc" class="file-path"></span>
         </div>
+        <div v-if="audioSrc!==''" class="current-file" style="margin-bottom: 30px;">选取范围:（当前
+            <span class="curent-time" v-text="~~currentTime"></span>s）
+            <p class="time-p">起始时间：
+                <input type="number" placeholder="起始时间" v-model="start">
+            </p>
+            <p class="time-p">
+                截止时间：
+                <input type="number" placeholder="截止时间" v-model="end">
+            </p>
+        </div>
+
+        <div class="control-zone"></div>
         <hr />
+        <button v-if="audioSrc!==''" id="play" class="btn btn-default" @click="play">播放</button>
+        <button v-if="audioSrc!==''" id="cut" class="btn btn-success" @click="cut">截取</button>
 
-        <button id="play" class="btn btn-default">播放</button>
-        <button id="cut" class="btn btn-success">截取</button>
-        <span class="curent-time" v-text="currentTime"></span>
     </div>
-
-
     <script src="cut.js"></script>
 
 </body>

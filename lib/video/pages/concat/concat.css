@@ -10,29 +10,21 @@ body {
 }
 
 .control-bar {
-    height: 50px;
-    line-height: 50px;
-    padding-left: 2%;
-}
-
-#fileName {
-    height: 25px;
+    height: 35px;
 }
 
 .drag-zone {
-    height: 125px;
+    height: calc(100% - 35px);
+    overflow-y: scroll;
 }
 
 .drag-zone .drag-info {
-    border-radius: 7px;
-    margin: 2%;
-    width: 96%;
-    height: 93%;
+    width: 100%;
+    height: 100%;
     background: #e0e0e0;
-    line-height: 100px;
+    line-height: 16em;
     text-align: center;
     font-size: 2em;
-    border: 5px #1b1b1b dashed;
 }
 
 .drag-zone .file-p {
@@ -52,28 +44,4 @@ body {
 
 .drag-zone .file-p.processing {
     background: #e6ff81;
-}
-
-.control-zone {
-    margin: 10px;
-}
-
-.audio-play {
-    display: block;
-    margin: 30px;
-}
-
-.current-file {
-    padding-left: 12px;
-    font-size: 18px;
-    margin: 10px 0px 10px 0px;
-}
-
-.current-file .file-path {
-    font-size: 14px;
-}
-
-.time-p {
-    font-size: 12px;
-    margin-top: 12px;
 }
