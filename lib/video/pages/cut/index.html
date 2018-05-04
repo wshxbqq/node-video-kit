@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
     <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
     <script src="../../../pagelib/vue.min.js"></script>
-    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
-
     <script>
         if (typeof module === 'object') {
             window.jQuery = window.$ = module.exports;
         };
     </script>
+    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
 </head>
 
 <body>
@@ -35,25 +34,25 @@
                 <option>vob</option>
             </select>
             文件名：
-            <input id="fileName" value="concat_video" />
-
+            <input id="fileName" value="cut_video" />
+            <button id="cut" class="btn btn-success" @click="cutclick">截取</button>
         </div>
 
         <div class="drag-zone" id="dragZone">
             <div class="drag-info">截取文件拖拽到此处</div>
         </div>
 
-        <hr style="margin-top: 175px" />
+        <hr />
+
+        <div class="position-area">
+            <video ref="video" loop autoplay id="video" class="video-sprite" :src="videoSrc" @durationchange="durationchange($event)"></video>
+        </div>
 
         <div class="control-zone">
 
         </div>
-        <hr />
 
-        <hr />
-        <button id="play" class="btn btn-default">播放</button>
-        <button id="cut" class="btn btn-success">截取</button>
-        <span class="curent-time" v-text="currentTime"></span>
+
     </div>
 
 

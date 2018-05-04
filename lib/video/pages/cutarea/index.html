@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="watermark.css">
+    <link rel="stylesheet" href="cutarea.css">
     <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
     <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
     <script src="../../../pagelib/vue.min.js"></script>
@@ -15,7 +15,7 @@
         };
     </script>
     <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
-    <title>视频添加水印</title>
+    <title>视频截取（区域）</title>
 </head>
 
 <body>
@@ -35,8 +35,8 @@
                 <option>vob</option>
             </select>
             输出文件名：
-            <input id="fileName" value="watermarked_video" />
-            <button v-if="imgSrc!='' && videoSrc!=''" id="start" class="btn btn-success" @click="goStart">开始</button>
+            <input id="fileName" value="cutarea_video" />
+            <button v-if="videoSrc!=''" id="start" class="btn btn-success" @click="goStart">开始</button>
         </div>
 
         <div class="drag-zone" id="dragZoneVideo">
@@ -45,24 +45,15 @@
             </div>
         </div>
 
-        <div class="drag-zone" id="dragZoneImg">
-            <div class="drag-info" :class="{'drag-bg':imgSrc!='' }">水印图片拖拽到此处
-                <p class="content-p" v-text="imgName"></p>
-            </div>
-        </div>
-        <div v-if="imgSrc!='' && videoSrc!=''">
+        <div v-if="videoSrc">
             <hr class="clear" />
-            <h4>拖拽图片调节位置：</h4>
+            <h4>拖拽调节剪切位置：</h4>
             <div class="position-area" :style="{ width:videoShowWidth + 'px' , height: videoShowHeight + 'px' }">
                 <video ref="video" loop autoplay id="video" class="video-sprite" :src="videoSrc" :width="videoShowWidth" :height="videoShowHeight"
                     @durationchange="durationchange($event)"></video>
 
                 <div class="waterimg-wrapper" :style="{ top:imgShowTop + 'px' , left: imgShowLeft + 'px',width: imgShowWidth+'px',height: imgShowHeight+'px' }"
                     @mousedown="imgmousedown">
-                    <video v-if="subContent=='video'" ref="videoSub" loop autoplay id="videoSub" class="video-sprite" :src="imgSrc" :width="imgShowWidth"
-                        :height="imgShowHeight"></video>
-                    <img v-if="subContent=='img'" ref="waterimg" id="waterimg" class="img-sprite" :src="imgSrc" @error="imgerror($event)" @load="imgload($event)"
-                        @dragstart="prevent($event)" />
                     <div id="resizeBox" class="resize-box" @mousedown="resizemousedown($event)">↘</div>
                 </div>
             </div>
@@ -90,7 +81,7 @@
         </div>
 
     </div>
-    <script src="watermark.js"></script>
+    <script src="cutarea.js"></script>
 
 </body>
 

@@ -24,6 +24,7 @@ h4 {
 .waterimg-wrapper {
     position: absolute;
     cursor: move;
+    border: 1px red solid;
 }
 
 .resize-box {
@@ -56,9 +57,8 @@ h4 {
 
 .drag-zone {
     height: 100px;
-    width: 44%;
-    float: left;
-    margin-left: 3.5%;
+    width: 88%;
+    margin-left: 4%;
 }
 
 .drag-zone .drag-info {
