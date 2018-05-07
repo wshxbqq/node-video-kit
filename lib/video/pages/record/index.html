@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="record.css">
+    <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
+    <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
+    <script src="../../../pagelib/vue.min.js"></script>
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+    <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
+    <title>屏幕录制</title>
+</head>
+
+<body>
+    <div id="app" @mousemove="imgmousemove" @mouseup="imgmouseup">
+        <div class="control-bar">
+            输出格式:
+            <select id="targetType" v-model="targetType">
+                <option selected>mp4</option>
+                <option>avi</option>
+                <option>flv</option>
+                <option>mkv</option>
+                <option>gif</option>
+                <option>mov</option>
+                <option>ogg</option>
+                <option>wmv</option>
+                <option>mpg</option>
+                <option>vob</option>
+            </select>
+            输出文件名：
+            <input id="fileName" value="record_video" v-model="fileName" />
+            <button id="start" class="btn btn-success" @click="goRecord">开始录制</button>
+            <button id="start" class="btn btn-success" @click="stopRecord">停止</button>
+        </div>
+
+        <div v-if="screenShot">
+            <hr class="clear" />
+            <h4>拖拽调节剪切位置：</h4>
+            <div class="position-area" :style="{ width:videoShowWidth + 'px' , height: videoShowHeight + 'px' }">
+                <img ref="screenShotImg" :src="screenShot" class="screen-shgot-img" :width="videoShowWidth" :height="videoShowHeight" @load="imgload($event)"
+                />
+
+                <div class="waterimg-wrapper" :style="{ top:imgShowTop + 'px' , left: imgShowLeft + 'px',width: imgShowWidth+'px',height: imgShowHeight+'px' }"
+                    @mousedown="imgmousedown">
+                    <div id="resizeBox" class="resize-box" @mousedown="resizemousedown($event)">↘</div>
+                </div>
+            </div>
+            <hr class="clear" />
+            <h4>精准调节：</h4>
+            <p class="size-num">
+                <span>水印宽度w:
+                    <input type="number" value="0" v-model="imgSpriteWidth" />
+                </span>
+                <span>水印高度h:
+                    <input type="number" value="0" v-model="imgSpriteHeight" />
+                </span>
+            </p>
+            <p class="size-num">
+                <span>水印位置x:
+                    <input type="number" id="leftNum" value="0" v-model="left" />
+                </span>
+                <span>水印位置y:
+                    <input type="number" id="topNum" value="0" v-model="top" />
+                </span>
+            </p>
+
+
+
+        </div>
+
+    </div>
+    <script src="record.js"></script>
+
+</body>
+
+</html>

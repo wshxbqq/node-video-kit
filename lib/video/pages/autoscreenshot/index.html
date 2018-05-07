@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="cut.css">
+    <link rel="stylesheet" href="autoscreenshot.css">
     <link rel="stylesheet" href="../../../pagelib/jquery.range/jquery.range.css">
     <script src="../../../pagelib/jquery.3.1.0.min.js"></script>
     <script src="../../../pagelib/vue.min.js"></script>
@@ -15,32 +15,26 @@
         };
     </script>
     <script src="../../../pagelib/jquery.range/jquery.range.js"></script>
-    <title></title>
+    <title>自动截图</title>
 </head>
 
 <body>
     <div id="app">
+        <h4 class="func-txt">本功能为每间隔 n 秒自动视频截图到本地文件</h4>
         <div class="control-bar">
-            截取后格式:
-            <select id="targetType">
-                <option selected>mp4</option>
-                <option>avi</option>
-                <option>flv</option>
-                <option>mkv</option>
-                <option>gif</option>
-                <option>mov</option>
-                <option>ogg</option>
-                <option>wmv</option>
-                <option>mpg</option>
-                <option>vob</option>
-            </select>
-            文件名：
-            <input id="fileName" value="cut_video" />
-            <button id="cut" class="btn btn-success" @click="cutclick">截取</button>
+            <span>间隔时间（s）：
+                <input id="timespan" value="1" type="number" v-model="timespan" />
+            </span>
+
+            <span>截取图片文件名：
+                <input id="fileName" value="img%05d.jpg" v-model="fileName" />
+            </span>
+
+            <button id="cut" class="btn btn-success" @click="autoshotclick">自动截取</button>
         </div>
 
         <div class="drag-zone" id="dragZone">
-            <div class="drag-info">截取文件拖拽到此处</div>
+            <div class="drag-info">视频文件拖拽到此处</div>
         </div>
 
         <hr />
@@ -57,7 +51,7 @@
     </div>
 
 
-    <script src="cut.js"></script>
+    <script src="autoscreenshot.js"></script>
 
 </body>
 

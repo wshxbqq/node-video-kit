@@ -9,6 +9,11 @@ body {
     user-select: none;
 }
 
+.func-txt {
+    text-align: center;
+    color: #1fa53d;
+}
+
 .control-bar {
     height: 50px;
     line-height: 50px;
@@ -17,6 +22,11 @@ body {
 
 #fileName {
     height: 25px;
+}
+
+#timespan {
+    height: 25px;
+    width: 60px;
 }
 
 .drag-zone {
