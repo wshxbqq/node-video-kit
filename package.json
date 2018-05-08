@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "packwin": "electron-packager ./ myvideo --platform=win32 --arch=x64 --electronVersion=1.8.4 --out=dist"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
     "bin-wrapper": "^3.0.2",
     "ffmpeg-static": "^2.2.1",
     "shelljs": "^0.8.1"
+  },
+  "devDependencies": {
+    "electron-packager": "^12.0.2"
   }
 }
