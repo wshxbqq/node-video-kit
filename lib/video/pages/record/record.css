@@ -53,6 +53,8 @@ h4 {
 
 #fileName {
     height: 25px;
+    width: 100px;
+    text-align: center;
 }
 
 .drag-zone {
@@ -118,6 +120,7 @@ h4 {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
+    height: 100px;
 }
 
 .position-area .screen-shgot-img {}

@@ -23,8 +23,8 @@
         <div class="control-bar">
             输出格式:
             <select id="targetType" v-model="targetType">
-                <option selected>mp4</option>
-                <option>avi</option>
+                <option selected>avi</option>
+                <option>mp4</option>
                 <option>flv</option>
                 <option>mkv</option>
                 <option>gif</option>
@@ -36,8 +36,12 @@
             </select>
             输出文件名：
             <input id="fileName" value="record_video" v-model="fileName" />
-            <button id="start" class="btn btn-success" @click="goRecord">开始录制</button>
-            <button id="start" class="btn btn-success" @click="stopRecord">停止</button>
+
+            <label for="withSound">声音</label>
+            <input type="checkbox" v-model="withSound" id="withSound" name="withSound" />
+
+            <button id="start" class="btn btn-success" @click="goRecord" v-if="!processing">开始录制</button>
+            <button id="start" class="btn btn-success" @click="stopRecord" v-if="processing">停止录制({{duration}})s</button>
         </div>
 
         <div v-if="screenShot">
@@ -55,18 +59,18 @@
             <hr class="clear" />
             <h4>精准调节：</h4>
             <p class="size-num">
-                <span>水印宽度w:
+                <span>录制区宽度w:
                     <input type="number" value="0" v-model="imgSpriteWidth" />
                 </span>
-                <span>水印高度h:
+                <span>录制区高度h:
                     <input type="number" value="0" v-model="imgSpriteHeight" />
                 </span>
             </p>
             <p class="size-num">
-                <span>水印位置x:
+                <span>录制区位置x:
                     <input type="number" id="leftNum" value="0" v-model="left" />
                 </span>
-                <span>水印位置y:
+                <span>录制区位置y:
                     <input type="number" id="topNum" value="0" v-model="top" />
                 </span>
             </p>
