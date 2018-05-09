@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "packwin": "electron-packager ./ myvideo --platform=win32 --arch=x64 --electronVersion=1.8.4 --out=dist"
+    "packwin": "electron-packager ./ myvideo --platform=win32 --arch=x64 --electronVersion=1.8.4 --out=dist  --icon=static/win32.ico"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "bin-wrapper": "^3.0.2",
+    "ffmpeg-device-list-parser": "^0.1.0",
     "ffmpeg-static": "^2.2.1",
     "shelljs": "^0.8.1"
   },

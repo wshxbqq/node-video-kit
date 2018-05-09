@@ -34,11 +34,18 @@
                 <option>mpg</option>
                 <option>vob</option>
             </select>
+
+
             输出文件名：
             <input id="fileName" value="record_video" v-model="fileName" />
+            <span class="" v-if="audioSource!=''">
+                <label for="withSound">声音</label>
+                <input type="checkbox" v-model="withSound" id="withSound" name="withSound" />音源：
+                <select id="audioSource" v-model="audioSource">
+                    <option v-for="audioDevice in audioList">{{audioDevice}}</option>
+                </select>
+            </span>
 
-            <label for="withSound">声音</label>
-            <input type="checkbox" v-model="withSound" id="withSound" name="withSound" />
 
             <button id="start" class="btn btn-success" @click="goRecord" v-if="!processing">开始录制</button>
             <button id="start" class="btn btn-success" @click="stopRecord" v-if="processing">停止录制({{duration}})s</button>

@@ -17,42 +17,46 @@
 </head>
 
 <body>
-    <div class="control-bar">
-        目标格式:
-        <select id="targetType">
-            <option selected>mp3</option>
-            <option>wav</option>
-            <option>wma</option>
-            <option>ogg</option>
-            <option>ape</option>
-            <option>flac</option>
-            <option>aac</option>
-            <option>ac3</option>
-            <option>mmf</option>
-            <option>amr</option>
-            <option>m4a</option>
-            <option>m4r</option>
-            <option>mp2</option>
-        </select>
-        文件名：
-        <input id="fileName" value="converted_{name}.{ext}" />
-        <span>
-            <input type="checkbox" id="coverCkb"  title="勾选时，生成在源文件同目录下" checked />
-            <label for="coverCkb" title="勾选时，生成在源文件同目录下">同目录</label>
-        </span>
-        <button class="btn btn-success" id="start">开始</button>
-        <button class="btn btn-info" id="reset">重置</button>
+    <div id="app">
+
+        <div class="control-bar">
+            目标格式:
+            <select id="targetType">
+                <option selected>mp3</option>
+                <option>wav</option>
+                <option>wma</option>
+                <option>ogg</option>
+                <option>ape</option>
+                <option>flac</option>
+                <option>aac</option>
+                <option>ac3</option>
+                <option>mmf</option>
+                <option>amr</option>
+                <option>m4a</option>
+                <option>m4r</option>
+                <option>mp2</option>
+            </select>
+            文件名：
+            <input id="fileName" value="converted_{name}.{ext}" />
+            <span>
+                <input type="checkbox" id="coverCkb" title="勾选时，生成在源文件同目录下" checked />
+                <label for="coverCkb" title="勾选时，生成在源文件同目录下">同目录</label>
+            </span>
+            <button class="btn btn-success" id="start" v-if="!processing">开始</button>
+            <button class="btn btn-info" id="reset" v-if="!processing">重置</button>
+        </div>
+
+        <div class="drag-zone" id="dragZone">
+            <div v-if="filesArr.length==0" class="drag-info">将待转换文件拖拽到此处</div>
+            <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
+                <span class="fPath">{{item.path}}</span>
+                <button class="btn btn-default btn-xs del" @click="removeFile(item)" title="只移除此任务，并不删除文件">删</button>
+                <span v-if="item.stat=='processing'">处理中</span>
+                <span v-if="item.stat=='ok'">完成</span>
+            </p>
+        </div>
     </div>
 
-    <div class="drag-zone" id="dragZone">
-        <div v-if="filesArr.length==0" class="drag-info">将待转换文件拖拽到此处</div>
-        <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
-            <span class="fPath">{{item.path}}</span>
-            <button class="btn btn-default btn-xs del" @click="removeFile(item)" title="只移除此任务，并不删除文件">删</button>
-            <span v-if="item.stat=='processing'">处理中</span>
-            <span v-if="item.stat=='ok'">完成</span>
-        </p>
-    </div>
     <script src="convert.js"></script>
 
 </body>
