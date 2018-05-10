@@ -35,12 +35,24 @@
                 <option>vob</option>
             </select>
 
+            <span>
+                输出文件名：
+                <input id="fileName" value="record_video" v-model="fileName" />
+            </span>
+            <span>
+                视频源：
+                <select id="videoSource" v-model="videoSource">
+                    <option v-for="videoDevice in videoList">{{videoDevice}}</option>
+                </select>
+            </span>
+            <br>
+            <span>
+                <label for="withSound">包含声音</label>
+                <input type="checkbox" v-model="withSound" id="withSound" name="withSound" />
+            </span>
 
-            输出文件名：
-            <input id="fileName" value="record_video" v-model="fileName" />
-            <span class="" v-if="audioSource!=''">
-                <label for="withSound">声音</label>
-                <input type="checkbox" v-model="withSound" id="withSound" name="withSound" />音源：
+            <span v-if="withSound">
+                音源：
                 <select id="audioSource" v-model="audioSource">
                     <option v-for="audioDevice in audioList">{{audioDevice}}</option>
                 </select>
