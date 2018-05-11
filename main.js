@@ -1,4 +1,5 @@
 const fs = require("fs");
+const shelljs = require("shelljs");
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -7,7 +8,7 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
-
+const os = require('os');
 
 let mainWindow
 
@@ -77,6 +78,12 @@ ipc.on('open-file-dialog', function (event) {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
+
+const tmpDirRoot = path.join(os.tmpdir(), "ez_media");
+
+shelljs.mkdir("-p", path.join(tmpDirRoot, "video"));
+shelljs.mkdir("-p", path.join(tmpDirRoot, "audio"));
+shelljs.mkdir("-p", electron.app.getPath('userData'));
 let softStartFilePath = path.join(electron.app.getPath('userData'), "start.txt");
 
 if (!fs.existsSync(softStartFilePath)) {
