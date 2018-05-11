@@ -1,3 +1,4 @@
+const fs = require("fs");
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -31,8 +32,8 @@ let donateWindow
 
 function createdonateWindow() {
     donateWindow = new BrowserWindow({
-        width: 600,
-        height: 600
+        width: 300,
+        height: 500
     })
     donateWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'donate.html'),
@@ -45,18 +46,9 @@ function createdonateWindow() {
     })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', function (e) {
-    createWindow();
-    createdonateWindow();
-})
 
-// Quit when all windows are closed.
 app.on('window-all-closed', function () {
-    // On OS X it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
+
     if (process.platform !== 'darwin') {
         app.quit()
     }
@@ -84,3 +76,22 @@ ipc.on('open-file-dialog', function (event) {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+let softStartFilePath = path.join(electron.app.getPath('userData'), "start.txt");
+
+if (!fs.existsSync(softStartFilePath)) {
+    fs.writeFileSync(softStartFilePath, "0", "utf-8");
+}
+let c = fs.readFileSync(softStartFilePath, "utf-8");
+c = parseInt(c);
+c++;
+fs.writeFileSync(softStartFilePath, c, "utf-8");
+
+app.on('ready', function (e) {
+    createWindow();
+    if (c > 8) {
+        createdonateWindow();
+        fs.writeFileSync(softStartFilePath, "0", "utf-8");
+    }
+
+})
