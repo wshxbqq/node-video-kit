@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "packwin": "electron-packager ./ myvideo --platform=win32 --arch=x64 --electronVersion=1.8.4 --out=dist  --icon=static/win32.ico"
+    "packwin": "electron-packager ./ slipVideo --platform=win32 --arch=x64 --electronVersion=2.0.0 --out=dist  --icon=static/win32.ico",
+    "packmas": "electron-packager ./ slipVideo --app-bundle-id=com.wangshaoxing.slipvideo --app-version=1.0.0 --build-version=1.0.100 --platform=mas --arch=x64 --electronVersion=2.0.0 --out=dist --icon=static/icon.icns   --overwrite",
+    "sign": "electron-osx-sign dist/slipVideo-mas-x64/slipVideo.app"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,10 @@
   "homepage": "https://github.com/wshxbqq/node-video-kit#readme",
   "dependencies": {
     "async": "^2.6.0",
+    "electron-packager": "^12.0.2",
     "ffmpeg-device-list-parser": "^0.1.0",
-    "ffmpeg-static": "^2.2.1",
-    "shelljs": "^0.8.1",
-    "electron-packager": "^12.0.2"
+    "ffmpeg-static": "^2.3.0",
+    "shelljs": "^0.8.1"
   },
   "devDependencies": {}
 }

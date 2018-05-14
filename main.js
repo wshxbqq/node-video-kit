@@ -22,7 +22,7 @@ function createWindow() {
         protocol: 'file:',
         slashes: true
     }))
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
     mainWindow.on('closed', function () {
         mainWindow = null
     })
@@ -96,9 +96,8 @@ fs.writeFileSync(softStartFilePath, c, "utf-8");
 
 app.on('ready', function (e) {
     createWindow();
-    if (c > 8) {
+    if (c > 6) {
         createdonateWindow();
         fs.writeFileSync(softStartFilePath, "0", "utf-8");
     }
-
 })

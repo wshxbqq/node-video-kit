@@ -17,7 +17,7 @@ $(".func").on("click", function (e) {
         });
         win.loadURL(modalPath);
         win.show();
-        win.webContents.openDevTools()
+        //win.webContents.openDevTools()
     }
 
 });
