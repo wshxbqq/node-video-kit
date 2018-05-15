@@ -1,3 +1,4 @@
+"use strict";
 const fs = require("fs");
 const shelljs = require("shelljs");
 const electron = require('electron')
@@ -22,12 +23,11 @@ function createWindow() {
         protocol: 'file:',
         slashes: true
     }))
-    //mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
     mainWindow.on('closed', function () {
         mainWindow = null
     })
 }
-
 
 let donateWindow
 
@@ -74,13 +74,10 @@ ipc.on('open-file-dialog', function (event) {
     })
 })
 
-
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-
 const tmpDirRoot = path.join(os.tmpdir(), "ez_media");
-
 shelljs.mkdir("-p", path.join(tmpDirRoot, "video"));
 shelljs.mkdir("-p", path.join(tmpDirRoot, "audio"));
 shelljs.mkdir("-p", electron.app.getPath('userData'));

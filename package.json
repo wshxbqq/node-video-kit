@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "packwin": "electron-packager ./ slipVideo --platform=win32 --arch=x64 --electronVersion=2.0.0 --out=dist  --icon=static/win32.ico",
-    "packmas": "electron-packager ./ slipVideo --app-bundle-id=com.wangshaoxing.slipvideo --app-version=1.0.0 --build-version=1.0.100 --platform=mas --arch=x64 --electronVersion=2.0.0 --out=dist --icon=static/icon.icns   --overwrite",
-    "sign": "electron-osx-sign dist/slipVideo-mas-x64/slipVideo.app"
+    "packwin": "electron-packager ./ slipvideo --platform=win32 --arch=x64 --electronVersion=2.0.0 --out=dist  --icon=static/win32.ico",
+    "packmas": "electron-packager ./ slipvideo --app-bundle-id=com.wangshaoxing.slipvideo --app-version=1.0.0 --build-version=1.0.0 --platform=mas --arch=x64 --electronVersion=0.35.6 --out=dist --icon=static/icon.icns --overwrite",
+    "sign": "electron-osx-sign dist/slipVideo-mas-x64/slipvideo.app --type=distribution   --entitlements='parent.plist' --entitlements-inherit='child.plist' --provisioning-profile=\"slipvideo.provisionprofile\""
   },
   "repository": {
     "type": "git",

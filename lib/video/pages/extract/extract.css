@@ -17,6 +17,7 @@ body {
 
 #fileName {
     height: 25px;
+    line-height: 12px;
 }
 
 .drag-zone {

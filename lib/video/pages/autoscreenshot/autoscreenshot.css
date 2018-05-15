@@ -22,11 +22,13 @@ body {
 
 #fileName {
     height: 25px;
+    line-height: 12px;
 }
 
 #timespan {
     height: 25px;
     width: 60px;
+    line-height: 12px;
 }
 
 .drag-zone {

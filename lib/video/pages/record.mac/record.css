@@ -54,6 +54,7 @@ h4 {
     height: 25px;
     width: 100px;
     text-align: center;
+    line-height: 12px;
 }
 
 .drag-zone {
