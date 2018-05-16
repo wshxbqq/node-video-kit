@@ -9,10 +9,18 @@ body {
     user-select: none;
 }
 
+input {
+    line-height: 12px;
+}
+
 .control-bar {
-    height: 50px;
+    height: 105px;
     line-height: 50px;
     padding-left: 2%;
+}
+
+.ab {
+    width: 80px;
 }
 
 #fileName {
@@ -21,7 +29,7 @@ body {
 }
 
 .drag-zone {
-    height: calc(100% - 35px);
+    height: 460px;
     overflow-y: scroll;
 }
 

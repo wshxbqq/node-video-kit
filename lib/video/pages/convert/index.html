@@ -17,38 +17,51 @@
 </head>
 
 <body>
-    <div class="control-bar">
-        转换后格式:
-        <select id="targetType">
-            <option selected>mp4</option>
-            <option>avi</option>
-            <option>flv</option>
-            <option>mkv</option>
-            <option>gif</option>
-            <option>mov</option>
-            <option>ogg</option>
-            <option>wmv</option>
-            <option>mpg</option>
-            <option>vob</option>
-        </select>
-        文件名：
-        <input id="fileName" value="converted_{name}.{ext}" />
-        <span>
-            <input type="checkbox" id="coverCkb" checked />
-            <label for="coverCkb">同目录</label>
-        </span>
-        <button class="btn btn-success" id="start">开始</button>
-        <button class="btn btn-info" id="reset">重置</button>
-    </div>
+    <div id="app">
+        <div class="control-bar">
+            转换后格式:
+            <select id="targetType">
+                <option selected>mp4</option>
+                <option>avi</option>
+                <option>flv</option>
+                <option>mkv</option>
+                <option>gif</option>
+                <option>mov</option>
+                <option>ogg</option>
+                <option>wmv</option>
+                <option>mpg</option>
+                <option>vob</option>
+            </select>
+            文件名：
+            <input id="fileName" value="converted_{name}.{ext}" />
+            <span>
+                <input type="checkbox" id="coverCkb" checked />
+                <label for="coverCkb">同目录</label>
+            </span>
+            <button class="btn btn-success" id="start" @click="start" v-if="!processing">开始</button>
+            <button class="btn btn-info" id="reset" @click="reset" v-if="!processing">重置</button>
+            <br />
+            <div>
+                <input v-model="bitrateRedefine" type="checkbox" id="bitrateRedefine" title="体积控制" checked />
+                <label for="bitrateRedefine" title="体积控制">体积控制</label>
+                <span v-if="bitrateRedefine">
+                    音轨 bitrate:
+                    <input class="ab" v-model="ab" type="number"> 视轨 bitrate:
+                    <input class="ab" v-model="vb" type="number">
+                </span>
 
-    <div class="drag-zone" id="dragZone">
-        <div v-if="filesArr.length==0" class="drag-info">视频文件拖拽到此处</div>
-        <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
-            <span class="fPath">{{item.path}}</span>
-            <button class="btn btn-default btn-xs del" @click="removeFile(item)" title="只移除此任务，并不删除文件">删</button>
-            <span v-if="item.stat=='processing'">处理中</span>
-            <span v-if="item.stat=='ok'">完成</span>
-        </p>
+            </div>
+        </div>
+
+        <div class="drag-zone" id="dragZone">
+            <div v-if="filesArr.length==0" class="drag-info">视频文件拖拽到此处</div>
+            <p v-for="item in filesArr" class="file-p" v-bind:class="{ success: item.stat=='ok', 'failed': item.stat== 'err','processing': item.stat== 'processing' }">
+                <span class="fPath">{{item.path}}</span>
+                <button class="btn btn-default btn-xs del" @click="removeFile(item)" title="只移除此任务，并不删除文件">删</button>
+                <span v-if="item.stat=='processing'">处理中</span>
+                <span v-if="item.stat=='ok'">完成</span>
+            </p>
+        </div>
     </div>
     <script src="convert.js"></script>
 

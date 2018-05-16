@@ -42,8 +42,15 @@
                 <input type="checkbox" id="coverCkb" title="勾选时，生成在源文件同目录下" checked />
                 <label for="coverCkb" title="勾选时，生成在源文件同目录下">同目录</label>
             </span>
-            <button class="btn btn-success" id="start" v-if="!processing">开始</button>
-            <button class="btn btn-info" id="reset" v-if="!processing">重置</button>
+            <button class="btn btn-success" @click="start" v-if="!processing">开始</button>
+            <button class="btn btn-info" id="reset" @click="reset" v-if="!processing">重置</button>
+            <br />
+            <div>
+                <input v-model="bitrateRedefine" type="checkbox" id="bitrateRedefine" title="体积控制" checked />
+                <label for="bitrateRedefine" title="体积控制">体积控制(适当降低比特率可有效减小文件体积)</label>
+
+                <input class="ab" v-model="ab" v-if="bitrateRedefine" type="number">
+            </div>
         </div>
 
         <div class="drag-zone" id="dragZone">
