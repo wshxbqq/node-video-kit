@@ -32,8 +32,8 @@
             </select>
             文件名：
             <input id="fileName" value="converted_{name}.{ext}" />
-            <span>
-                <input type="checkbox" id="coverCkb" checked />
+            <span style="display:none">
+                <input type="checkbox" id="coverCkb" />
                 <label for="coverCkb">同目录</label>
             </span>
             <button class="btn btn-success" id="start" @click="start" v-if="!processing">开始</button>

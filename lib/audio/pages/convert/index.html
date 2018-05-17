@@ -32,8 +32,8 @@
             </select>
             文件名：
             <input id="fileName" value="converted_{name}.{ext}" />
-            <span>
-                <input type="checkbox" id="coverCkb" title="勾选时，生成在源文件同目录下" checked />
+            <span style="display:none">
+                <input type="checkbox" id="coverCkb" title="勾选时，生成在源文件同目录下" />
                 <label for="coverCkb" title="勾选时，生成在源文件同目录下">同目录</label>
             </span>
             <button class="btn btn-success" @click="start" v-if="!processing">开始</button>
