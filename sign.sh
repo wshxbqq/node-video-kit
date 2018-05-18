@@ -32,5 +32,5 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 
 
 # 生成安装包路径
-# RESULT_PATH= "/Users/wangshaoxing/project/$APP.pkg"
-# productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
+#RESULT_PATH= "/Users/wangshaoxing/project/$APP.pkg"
+productbuild --component "/Users/wangshaoxing/project/node-video-kit/dist/slipvideo-mas-x64/slipvideo.app" /Applications --sign "3rd Party Mac Developer Installer: wang shaoxing (F44H3Q2X88)"  "/Users/wangshaoxing/project/slipvideo.pkg"

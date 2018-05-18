@@ -14,7 +14,11 @@ $(".func").on("click", function (e) {
             height: 600
         });
         win.on('close', function () {
-            win = winFunc[url] = null;
+            try {
+                win = winFunc[url] = null;
+            } catch (ex) {
+                console.log(ex)
+            }
         });
         win.loadURL(modalPath);
         win.show();

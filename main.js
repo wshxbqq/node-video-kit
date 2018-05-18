@@ -23,9 +23,13 @@ function createWindow() {
         protocol: 'file:',
         slashes: true
     }))
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
     mainWindow.on('closed', function () {
-        mainWindow = null
+        try {
+            mainWindow = null
+        } catch (ex) {
+            console.log(ex)
+        }
     })
 }
 
@@ -49,9 +53,13 @@ function createdonateWindow() {
 
 
 app.on('window-all-closed', function () {
-
     if (process.platform !== 'darwin') {
-        app.quit()
+        try {
+            app.quit();
+        } catch (ex) {
+            console.log(ex)
+        }
+
     }
 })
 
@@ -94,7 +102,7 @@ fs.writeFileSync(softStartFilePath, c, "utf-8");
 app.on('ready', function (e) {
     createWindow();
     if (c > 6) {
-        createdonateWindow();
-        fs.writeFileSync(softStartFilePath, "0", "utf-8");
+        //createdonateWindow();
+        //fs.writeFileSync(softStartFilePath, "0", "utf-8");
     }
 })
