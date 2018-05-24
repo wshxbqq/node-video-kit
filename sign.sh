@@ -1,8 +1,8 @@
 #!/bin/bash
 # 你的应用名称
-APP="slipvideo"
+APP="万能影音处理器"
 # 要签名的应用路径
-APP_PATH="/Users/wangshaoxing/project/node-video-kit/dist/slipvideo-mas-x64/slipvideo.app"
+APP_PATH="/Users/wangshaoxing/project/node-video-kit/dist/万能影音处理器-mas-x64/万能影音处理器.app"
 # 开发者应用签名证书
 APP_KEY="3rd Party Mac Developer Application: wang shaoxing (F44H3Q2X88)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: wang shaoxing (F44H3Q2X88)"
@@ -33,4 +33,4 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 
 # 生成安装包路径
 #RESULT_PATH= "/Users/wangshaoxing/project/$APP.pkg"
-productbuild --component "/Users/wangshaoxing/project/node-video-kit/dist/slipvideo-mas-x64/slipvideo.app" /Applications --sign "3rd Party Mac Developer Installer: wang shaoxing (F44H3Q2X88)"  "/Users/wangshaoxing/project/slipvideo.pkg"
+#productbuild --component "/Users/wangshaoxing/project/node-video-kit/dist/万能影音处理器-mas-x64/万能影音处理器.app" /Applications --sign "3rd Party Mac Developer Installer: wang shaoxing (F44H3Q2X88)"  "/Users/wangshaoxing/project/v.pkg"
